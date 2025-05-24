@@ -130,7 +130,7 @@ class PrimaryKeyValidator:
             with col1:
                 st.metric("Total Rows", info["rows"])
             with col2:
-                st.metric("Total Columns", info["columns"])
+                st.metric("Total Columns", len(info["columns"]))
             with col3:
                 st.metric("Memory Usage", f"{info['memory_usage'] / 1024:.1f} KB")
 

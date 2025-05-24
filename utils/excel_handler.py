@@ -271,3 +271,19 @@ class ExcelHandler:
             "memory_usage": df.memory_usage(deep=True).sum(),
             "null_counts": df.isnull().sum().to_dict(),
         }
+
+    @staticmethod
+    def get_dataframe_info(df):
+        if df is None:
+            return "No DataFrame provided."
+
+        info = {
+            "columns": list(df.columns),
+            "dtypes": df.dtypes.to_dict(),
+            "shape": df.shape,
+            "rows": len(df),
+            "null_counts": df.isnull().sum().to_dict(),
+            "memory_usage": df.memory_usage(deep=True).sum(),  # in bytes
+        }
+
+        return info
