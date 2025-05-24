@@ -50,6 +50,7 @@ def main():
     tool_options = [
         "🏠 Home",
         "🔑 Primary Key Validator",
+        "🔗 Foreign Key Validator",
         "🔍 Lookup & Update",
         "📊 Data Merger",
         "⚖️ Sheet Comparer",
@@ -63,6 +64,8 @@ def main():
         show_home_page()
     elif selected_tool == "🔑 Primary Key Validator":
         show_primary_key_validator()
+    elif selected_tool == "🔗 Foreign Key Validator":
+        show_foreign_key_validator()
     elif selected_tool == "🔍 Lookup & Update":
         show_lookup_update()
     elif selected_tool == "📊 Data Merger":
@@ -126,6 +129,17 @@ def show_home_page():
         st.markdown(
             """
         <div class="tool-description">
+        <h3>🔗 Foreign Key Validator</h3>
+        <p>Ensure data integrity by validating foreign key relationships across
+        different Excel files. Identify orphaned records and maintain relational integrity.</p>
+        </div>
+        """,
+            unsafe_allow_html=True,
+        )
+
+        st.markdown(
+            """
+        <div class="tool-description">
         <h3>🔍 Lookup & Update</h3>
         <p>Perform VLOOKUP-style operations between workbooks. Update existing 
         data with new information seamlessly.</p>
@@ -154,6 +168,12 @@ def show_home_page():
 def show_primary_key_validator():
     """Function now handled by the actual tool"""
     from tools.primary_key_validator import show_primary_key_validator as run_validator
+
+    run_validator()
+
+
+def show_foreign_key_validator():
+    from tools.foreign_key_validator import show_foreign_key_validator as run_validator
 
     run_validator()
 
